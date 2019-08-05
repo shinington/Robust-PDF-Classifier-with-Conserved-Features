@@ -356,16 +356,16 @@ def attack_mimicry(scenario_name, plot=False):
     configuration file. If plot evaluates to True, saves the resulting 
     plot into the specified file, otherwise shows the plot in a window. 
     '''
-    # Configuration
-    target_files = "../dataset/pdfrateR_tr_ben.csv"
-    is_binary = True
-    scaler_path = "../dataset/pdfrateR.scaler"
-    training_data_path = "../dataset/pdfrateR_tr_scaled.csv"
+    # Configuration (should be mofified here)
+    target_files = "replace with the path to the .csv of the pdfrateR benign files in the training data (without standardizartion)" 
+    is_binary = "set it to be true if pdfrateB is to be evaluated"
+    scaler_path = "replaced with the path to the scaler"
+    training_data_path = "replaced with the path to .csv of the standardized training data of pdfrateR"
     X_train, y_train, _ = datasets.csv2numpy(training_data_path)
-    test_data_path = "../dataset/pdfrateR_te_scaled.csv"
+    test_data_path = "replaced with the path to .csv of the standardized training data of pdfrateB"
     X_test, y_test, _ = datasets.csv2numpy(test_data_path)    
     n_trial = 30
-    model_path = "/home/tongl/Dropbox/usenix_revision/model/pdfrateB_cfr_js.pickle"
+    model_path = "Replaced with the path to the model to be evaluated"
 
     print 'Running the mimicry attack...'
     #print("First train and test the target classifier")
