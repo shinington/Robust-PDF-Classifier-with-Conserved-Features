@@ -15,7 +15,7 @@ The following libararies are required.
 [Contagio PDF dataset](http://contagiodump.blogspot.com/2013/03/16800-clean-and-11960-malicious-files.html). Please contact [Mila](https://www.blogger.com/profile/09472209631979859691) for the permission and access to the dataset.
 
 ## Trained Models
-All the trained models used in the experiments can be downloaded [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0). Each  pickled model can be trained with one of the following methods: ```baseline```, ```rar```, ```fsr```, ```cfr``` or ```cfr_js```. ```baseline``` means training with non-adversarial data; ```rar``` is iteratively retrained with realizable attacks (EvadeML); ```fsr``` is retrained with feature space model (Eq.2 in the paper); ```cfr``` is retrained with feature space model anchored with conserved features (Eq.3 in the paper); ```cfr_js``` is similar to ```cfr```, but with conserved features that are relavant to JavaScript (Table 3 in the paper).  
+All the trained models used in the experiments can be downloaded [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0). Each  pickled model were trained with one of the following methods: ```baseline```, ```rar```, ```fsr```, ```cfr``` or ```cfr_js```. ```baseline``` means training with non-adversarial data; ```rar``` was iteratively retrained with realizable attacks (EvadeML); ```fsr``` was retrained with feature space model (Eq.2 in the paper); ```cfr``` was retrained with feature space model anchored with conserved features (Eq.3 in the paper); ```cfr_js``` is similar to ```cfr```, but with conserved features that are relavant to JavaScript (Table 3 in the paper).  
 
 ## Usage
 
