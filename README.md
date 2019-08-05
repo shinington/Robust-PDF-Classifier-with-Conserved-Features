@@ -14,9 +14,30 @@ The following libararies are required.
 ## Datasets
 [Contagio PDF dataset](http://contagiodump.blogspot.com/2013/03/16800-clean-and-11960-malicious-files.html). Please contact [Mila](https://www.blogger.com/profile/09472209631979859691) for the permission and access to the dataset.
 
+## Trained Models
+All the trained models used in the experiments can be downloaded [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0). Each  pickled model can be trained with one of the following methods: ```baseline```, ```rar```, ```fsr```, ```cfr``` or ```cfr_js```. ```baseline``` means training with non-adversarial data; ```rar``` is iteratively retrained with realizable attacks (EvadeML); ```fsr``` is retrained with feature space model (Eq.2 in the paper); ```cfr``` is retrained with feature space model anchored with conserved features (Eq.3 in the paper); ```cfr_js``` is similar to ```cfr```, but with conserved features that are relavant to JavaScript (Table 3 in the paper).  
+
 ## Usage
 
 ### EvadeML
+This is the primary attack employed in our experiments as it allows insertation, delection and swap of PDF objects and works for all the classifiers listed in our paper. 
+
+To use EvadeML in our settings, first copy the files in ```./customized_evademl``` to the corresponding location of the EvadeML directory.
+
+Then, modify ```project.conf``` with your own configuration.
+
+Afterward, run the following scripts as introduced in [this page](https://github.com/uvasrg/EvadeML):
+```
+$ ./utils/detection_agent_server.py ./utils/36vms_sigs.pickle
+$ ./utils/generate_ext_genome.py [classifier_name] [benign_sample_folder] [file_number]
+./batch.py [classifier_name] [ext_genome_folder] [round_id] [mode]
+```
+Here ```classifier_name``` can be one of the following used in our paper: sl2013, hidost, pdfrateR and pdfrateB. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), while the latter is used when EvadeML is applied to evaluate robustness of a classifier. 
+
+After evaluating the robustness of a classifier, use the following code to removed cached files.
+```
+sudo python delete.py
+```
 
 ### Retraining with Realizable Attacks
 
