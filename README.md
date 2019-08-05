@@ -9,13 +9,27 @@ The following libararies are required.
 * [Hidost](https://github.com/srndic/hidost): a toolset that extracts structural based features for PDF files. This works for both SL2013 and Hidost classifiers in this project. More details can be found in [this paper](https://jis-eurasipjournals.springeropen.com/articles/10.1186/s13635-016-0045-0).
 * [Mimicus](https://github.com/srndic/mimicus): a python library for both feature extraction and realizable evasion attacks to PDF classifiers.
 * [EvadeML](https://github.com/uvasrg/EvadeML): an evolutionary framework to evaluate robustness of PDF detectors. This is the primary attack used in our experiments.
-* [Modified pdfrw]: the PDF parser used in EvadeML.
+* [Modified pdfrw](https://github.com/mzweilin/PDF-Malware-Parser): the PDF parser used in EvadeML.
 
 ## Datasets
+[Contagio PDF dataset](http://contagiodump.blogspot.com/2013/03/16800-clean-and-11960-malicious-files.html). Please contact [Mila](https://www.blogger.com/profile/09472209631979859691) for the permission and access to the dataset.
 
-## Configuration
+## Usage
 
-## Running
+### EvadeML
+
+### Retraining with Realizable Attacks
+
+### Retraining with Feature Space Models
+
+### Mimicry and Mimicry+
+
+### Reverse Mimicry
+
+### The Custom Attack
+
+### MalGAN. 
+To be updated.
 
 ## Citation
 
