@@ -32,7 +32,7 @@ $ ./utils/detection_agent_server.py ./utils/36vms_sigs.pickle
 $ ./utils/generate_ext_genome.py [classifier_name] [benign_sample_folder] [file_number]
 ./batch.py [classifier_name] [ext_genome_folder] [round_id] [mode]
 ```
-Here ```classifier_name``` can be one of the following used in our paper: sl2013, hidost, pdfrateR and pdfrateB. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), and the latter is applied to evaluate robustness of a classifier. 
+Here ```classifier_name``` can be one of the following used in our paper: ```sl2013```, ```hidost```, ```pdfrateR``` and ```pdfrateB```. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), and the latter is applied to evaluate robustness of a classifier. 
 
 After evaluating the robustness of a given classifier, use the following program to removed cached files.
 ```
@@ -48,15 +48,15 @@ To process iterative retraining with a feature space attack model, use the follo
 cd src
 python retrain.py [feat] [mode] [n_start]
 ```
-This script is suggested to running on a server with at least 40 precessors as we use 40 retraining seeds and each corresponds to a non-convex optimization problem (at each retraining iteration). It may take serveral days to get a converged solution. Similarly to retraining with Feature Space Models, we also provide the retrained models for a direct evaluation. These models have names like ```_fsr```, ```_cfr``` and ```_cfr_js``` in the ```model``` folder to be downloaded.  
+This script is suggested to running on a server with at least 40 precessors as we use 40 retraining seeds and each corresponds to a non-convex optimization problem (at each retraining iteration). It may take serveral days to get a converged solution. Similarly to retraining with EvadeML, we provide the retrained models for a direct evaluation. These models have names like ```_fsr```, ```_cfr``` and ```_cfr_js``` in the ```model``` folder to be downloaded.  
 
 ### Mimicry+
-Mimicry+ is an updated version of the mimicry attack implemented in [Mimicus](https://github.com/srndic/mimicus). To use the implemented Mimicy+, copy the files in ```/customized_mimicry``` to the corresponding directoray of your Mimicus project and replace the old ones.
+Mimicry+ is an updated version of the mimicry attack implemented in [Mimicus](https://github.com/srndic/mimicus). To use the implemented Mimicy+, copy the files in ```/customized_mimicry``` to the corresponding directoray of your Mimicus project and replace the old ones. Then, run ```reproduction/FT.py``` in Mimicus.
 
 ### Reverse Mimicry
-First, download the 500 adversairal exmaples that use js embedding from [here](https://pralab.diee.unica.it/en/pdf-reverse-mimicry). 
+First, download the 500 adversairal exmaples that use JS embedding from [here](https://pralab.diee.unica.it/en/pdf-reverse-mimicry). 
 
-Then create a new folder by using ```mkdir data/reverse_mimicry``` and copy the files listed in ```./data/mal_rm_fnames.txt``` to ```./data/reverse_mimicry```. These are 376 malicious PDFs that are verified by using Cuckoo Sandbox.
+Then, create a new folder by using ```mkdir data/reverse_mimicry``` and copy the files listed in ```./data/mal_rm_fnames.txt``` to ```./data/reverse_mimicry```. These are 376 malicious PDFs whose maliciousness was verified by using Cuckoo Sandbox.
 
 Afterward, run the following program to evaluate the robustness of classifiers against reverse mimicry attacks:
 ```
