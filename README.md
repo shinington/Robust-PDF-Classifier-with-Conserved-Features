@@ -1,6 +1,6 @@
 # Robust-PDF-Classifier-with-Conserved-Features
 
-Corresponding code to the paper "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using Conserved Features" at the 28th USENIX Security Symposium.
+Corresponding code to the paper "Improving Robustness of ML Classifiers against Realizable Evasion Attacks Using Conserved Features" at the 28th USENIX Security Symposium ([PDF](https://www.usenix.org/conference/usenixsecurity19/presentation/tong)).
 
 ## Installation
 The following libararies are required.
