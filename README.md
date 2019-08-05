@@ -34,7 +34,7 @@ $ ./utils/generate_ext_genome.py [classifier_name] [benign_sample_folder] [file_
 ```
 Here ```classifier_name``` can be one of the following used in our paper: sl2013, hidost, pdfrateR and pdfrateB. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), and the latter is applied to evaluate robustness of a classifier. 
 
-After evaluating the robustness of a given classifier, use the following code to removed cached files.
+After evaluating the robustness of a given classifier, use the following program to removed cached files.
 ```
 sudo python delete.py
 ```
