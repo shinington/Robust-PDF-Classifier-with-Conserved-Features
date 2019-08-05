@@ -32,9 +32,9 @@ $ ./utils/detection_agent_server.py ./utils/36vms_sigs.pickle
 $ ./utils/generate_ext_genome.py [classifier_name] [benign_sample_folder] [file_number]
 ./batch.py [classifier_name] [ext_genome_folder] [round_id] [mode]
 ```
-Here ```classifier_name``` can be one of the following used in our paper: sl2013, hidost, pdfrateR and pdfrateB. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), while the latter is used when EvadeML is applied to evaluate robustness of a classifier. 
+Here ```classifier_name``` can be one of the following used in our paper: sl2013, hidost, pdfrateR and pdfrateB. The ```mode``` argument used for running ```batch.py``` can be ```retrain``` or ```test```. The former is used to retrain a classifier (detailed below), and the latter is applied to evaluate robustness of a classifier. 
 
-After evaluating the robustness of a classifier, use the following code to removed cached files.
+After evaluating the robustness of a given classifier, use the following code to removed cached files.
 ```
 sudo python delete.py
 ```
