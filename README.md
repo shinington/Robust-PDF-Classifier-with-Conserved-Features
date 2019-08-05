@@ -54,9 +54,9 @@ This script is suggested to running on a server with at least 40 precessors as w
 Mimicry+ is an updated version of the mimicry attack implemented in [Mimicus](https://github.com/srndic/mimicus). To use the implemented Mimicy+, copy the files in ```/customized_mimicry``` to the corresponding directoray of your Mimicus project and replace the old ones.
 
 ### Reverse Mimicry
-First, download the 500 adversairal exmaples from [here](https://pralab.diee.unica.it/en/pdf-reverse-mimicry). 
+First, download the 500 adversairal exmaples that use js embedding from [here](https://pralab.diee.unica.it/en/pdf-reverse-mimicry). 
 
-Then create a new folder by using ```mkdir -p data/reverse_mimicry``` and copy the files listed in ```./data/mal_rm_fnames.txt``` to ```./data/reverse_mimicry```. These are 376 malicious PDFs that are verified by using Cuckoo Sandbox.
+Then create a new folder by using ```mkdir data/reverse_mimicry``` and copy the files listed in ```./data/mal_rm_fnames.txt``` to ```./data/reverse_mimicry```. These are 376 malicious PDFs that are verified by using Cuckoo Sandbox.
 
 Afterward, run the following program to evaluate the robustness of classifiers against reverse mimicry attacks:
 ```
@@ -65,11 +65,31 @@ python evaluate_robustness.py [feat] reverse_mimicry
 ```
 
 ### The Custom Attack
+The custom attack applied tag encoding to manipulate PDF files (detailed in 4.3.5 of the paper). Please use the following steps to produce and evaluate the custom attack:
+
+First, build the target and adversarial data folder by ```mkdir data/attack_seed custom_attack```.
+
+Then, copy the attack seeds listed in ```./data/attack_fname.txt``` to ```/data/attack_seed```.
+
+Afterward, use the following program to execute attacks:
+```
+cd src
+python custom_attack ../data/attack_seed ../data/custom_attack
+```
+Finally, evaluate the robustness of the classifiers against the custom attack:
+```
+python evaluate_robustness.py [feat] custom_attack
+```
 
 ### MalGAN. 
 To be updated.
 
 ### Identify Conserved Features.
+To identify the conserved features for the 40 retraining seeds, run the following program in ```./customized_evademl```:
+```
+python identify_conserved.py
+```
+The result shows the structural paths after deleting which the original malicious PDF becomes benign. The implemetation for obtaining a uniformed conserved feature set will be updated in a future version. 
 
 ## Citation
 
