@@ -199,7 +199,7 @@ def evaluate_robustness(feat, attack, methods):
 if __name__ == "__main__":
     
     if len(sys.argv) < 3:
-        print("python reverse_mimicry.py [feat] [attack]")
+        print("python evaluate_robustness.py [feat] [attack]")
         print("feat: sl2013, hidost, pdfrateR or pdfrateB")
         print("attack:custom_attack or reverse_mimicry")
         sys.exit(1)
