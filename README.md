@@ -40,13 +40,29 @@ sudo python delete.py
 ```
 
 ### Retraining with Realizable Attacks
-As it takes about ten days to finish 10 iterations of retraining with EvadeML and the Cuckoo Sandbox can produce a large amount of cached files for a robust classifier, we suggest terminating Cuckoo Sandbox and clear its corresponding files after each iteration. Another reason to do this is that Cuckoo Sandbox can terminate some running Virtual Machines if it keeps running 48 VMs for a long time. To simplify the reproduction of the experiments, we suggest downloading the retrained model from [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0) and directly evaluate their robustness by using EvadeML.
+As it takes about ten days to finish 10 iterations of retraining with EvadeML and the Cuckoo Sandbox can produce a large amount of cached files for a robust classifier, we suggest terminating Cuckoo Sandbox and clear its corresponding files after each iteration. Another reason to do this is that Cuckoo Sandbox can terminate some running Virtual Machines if it keeps running 48 VMs for a long time. To simplify the reproduction of the experiments, we suggest downloading the retrained model from [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0) and directly evaluating their robustness by using EvadeML.
 
 ### Retraining with Feature Space Models
+To process iterative retraining with a feature space attack model, use the following scripts:
+```
+cd src
+python retrain.py [feat] [mode] [n_start]
+```
+This script is suggested to running on a server with at least 40 precessors as we use 40 retraining seeds and each corresponds to a non-convex optimization problem (at each retraining iteration). It may take serveral days to get a converged solution. Similarly to retraining with Feature Space Models, we also provide the retrained models for a direct evaluation. These models have names like ```_fsr```, ```_cfr``` and ```_cfr_js``` in the ```model``` folder to be downloaded.  
 
-### Mimicry and Mimicry+
+### Mimicry+
+Mimicry+ is an updated version of the mimicry attack implemented in [Mimicus](https://github.com/srndic/mimicus). To use the implemented Mimicy+, copy the files in ```/customized_mimicry``` to the corresponding directoray of your Mimicus project and replace the old ones.
 
 ### Reverse Mimicry
+First, download the 500 adversairal exmaples from [here](https://pralab.diee.unica.it/en/pdf-reverse-mimicry). 
+
+Then create a new folder by using ```mkdir -p data/reverse_mimicry``` and copy the files listed in ```./data/mal_rm_fnames.txt``` to ```./data/reverse_mimicry```. These are 376 malicious PDFs that are verified by using Cuckoo Sandbox.
+
+Afterward, run the following program to evaluate the robustness of classifiers against reverse mimicry attacks:
+```
+cd src
+python evaluate_robustness.py [feat] reverse_mimicry
+```
 
 ### The Custom Attack
 
