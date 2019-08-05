@@ -26,7 +26,7 @@ To use EvadeML in our settings, first copy the files in ```./customized_evademl`
 
 Then, modify ```project.conf``` with your own configuration.
 
-Afterward, run the following scripts as introduced in [this page](https://github.com/uvasrg/EvadeML):
+Afterward, initialize Cuckoo Sandbox and run the following scripts as introduced in [this page](https://github.com/uvasrg/EvadeML):
 ```
 $ ./utils/detection_agent_server.py ./utils/36vms_sigs.pickle
 $ ./utils/generate_ext_genome.py [classifier_name] [benign_sample_folder] [file_number]
@@ -40,6 +40,7 @@ sudo python delete.py
 ```
 
 ### Retraining with Realizable Attacks
+As it takes about ten days to finish 10 iterations of retraining with EvadeML and the Cuckoo Sandbox can produce a large amount of cached files for a robust classifier, we suggest terminating Cuckoo Sandbox and clear its corresponding files after each iteration. Another reason to do this is that Cuckoo Sandbox can terminate some running Virtual Machines if it keeps running 48 VMs for a long time. To simplify the reproduction of the experiments, we suggest downloading the retrained model from [here](https://www.dropbox.com/sh/fe1sheopik0itv2/AABKQ1KBi9ahwDzZMqe_Fg_0a?dl=0) and directly evaluate their robustness by using EvadeML.
 
 ### Retraining with Feature Space Models
 
@@ -51,6 +52,8 @@ sudo python delete.py
 
 ### MalGAN. 
 To be updated.
+
+### Identify Conserved Features.
 
 ## Citation
 
