@@ -20,9 +20,9 @@ All the trained models used in the experiments can be downloaded [here](https://
 ## Usage
 
 ### EvadeML
-This is the primary attack employed in our experiments as it allows insertation, delection and swap of PDF objects and works for all the classifiers listed in our paper. 
+This is the primary attack employed in our experiments as it allows insertation, delection and swap of PDF objects and works for all the kinds of classifiers in our paper. 
 
-To use EvadeML in our settings, first copy the files in ```./customized_evademl``` to the corresponding location of the EvadeML directory.
+To use EvadeML in our settings, first copy the files in ```./customized_evademl``` to the corresponding directory of your EvadeML project.
 
 Then, modify ```project.conf``` with your own configuration.
 
